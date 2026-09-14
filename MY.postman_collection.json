@@ -1,0 +1,282 @@
+{
+  "info": {
+    "_postman_id": "3dc28559-50e7-4f09-9b36-852f62c3a4ef",
+    "name": "MY",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50161166",
+    "_collection_link": "https://go.postman.co/collection/50161166-3dc28559-50e7-4f09-9b36-852f62c3a4ef?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "login admin",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "admin@gmail.com",
+              "type": "text",
+              "uuid": "70770bb2-6c63-472d-bf1d-e975e225de12"
+            },
+            {
+              "key": "password",
+              "value": "12345678",
+              "type": "text",
+              "uuid": "d15297cd-c1dd-444a-869c-b7095d904e13"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/login",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add User",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|pm9KxQFO0vIUNeIK9FsGkgGtXfGJhkqLcoC7s24J44a93068",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "first_name",
+              "value": "tala",
+              "type": "text",
+              "uuid": "ffbc3b0a-b483-4731-8bbd-983f32da6eaf"
+            },
+            {
+              "key": "last_name",
+              "value": "joumani",
+              "type": "text",
+              "uuid": "078d3296-44d3-4342-b937-9a32f8316b23"
+            },
+            {
+              "key": "email",
+              "value": "talajoumani000@gmail.com",
+              "type": "text",
+              "uuid": "3cbff113-49a1-4a5e-bae7-b305bfb5c0eb"
+            },
+            {
+              "key": "password",
+              "value": "12345678",
+              "type": "text",
+              "uuid": "8ed24151-0b2d-4081-a00f-f5bd53268918"
+            },
+            {
+              "key": "max_discount",
+              "value": "40",
+              "type": "text",
+              "uuid": "4943cc57-93b1-4633-a5a9-d3960fbe5ab0"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/addUser",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "addUser"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete User",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|m9fCsMyR0CJZ3IaicFodwlnUX7BPlNfBMGzP5D5e794d541a",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/deleteUser?id=5",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "deleteUser"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "5",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get All Users",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|m9fCsMyR0CJZ3IaicFodwlnUX7BPlNfBMGzP5D5e794d541a",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/getAllUsers",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "getAllUsers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update User",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|m9fCsMyR0CJZ3IaicFodwlnUX7BPlNfBMGzP5D5e794d541a",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/updateUser?id=4&first_name=ttttttttttttt",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "updateUser"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "4",
+              "type": "text"
+            },
+            {
+              "key": "first_name",
+              "value": "ttttttttttttt",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
