@@ -61,7 +61,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "1|pm9KxQFO0vIUNeIK9FsGkgGtXfGJhkqLcoC7s24J44a93068",
+              "value": "1|lTnqLIciW5jDiuFwXGMTPUdrmwtwuPrUNvTob1MR2132190c",
               "type": "string"
             }
           ]
@@ -79,7 +79,7 @@
           "formdata": [
             {
               "key": "first_name",
-              "value": "tala",
+              "value": "fared",
               "type": "text",
               "uuid": "ffbc3b0a-b483-4731-8bbd-983f32da6eaf"
             },
@@ -91,7 +91,7 @@
             },
             {
               "key": "email",
-              "value": "talajoumani000@gmail.com",
+              "value": "totajoumani@gmail.com",
               "type": "text",
               "uuid": "3cbff113-49a1-4a5e-bae7-b305bfb5c0eb"
             },
@@ -273,6 +273,323 @@
               "value": "ttttttttttttt",
               "type": "text"
             }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "totajoumani@gmail.com",
+              "type": "text",
+              "uuid": "70770bb2-6c63-472d-bf1d-e975e225de12"
+            },
+            {
+              "key": "password",
+              "value": "12345678",
+              "type": "text",
+              "uuid": "d15297cd-c1dd-444a-869c-b7095d904e13"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/login",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "generate User Code",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "3|KsfU8AdiMXW5kFvXTRJHw7RlyRRnBVtrzZViqeeG260fb6fd",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "discount",
+              "value": "30",
+              "type": "text",
+              "uuid": "bc18f9d2-73ae-4fa2-a5ec-2a1fbf166a21"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/generateUserCode",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "generateUserCode"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "enter code from admin and calculate amount",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|lTnqLIciW5jDiuFwXGMTPUdrmwtwuPrUNvTob1MR2132190c",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "code",
+              "value": "tala32_25",
+              "type": "text",
+              "uuid": "909927a2-8cd0-47f3-ad1b-f131f801629e",
+              "disabled": true
+            },
+            {
+              "key": "amount",
+              "value": "100",
+              "type": "text",
+              "uuid": "d804289c-4073-4594-86c3-02be193481d1",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/verifyAndCalculateCode?code=fared_30&total_amount=100",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "verifyAndCalculateCode"
+          ],
+          "query": [
+            {
+              "key": "code",
+              "value": "fared_30"
+            },
+            {
+              "key": "total_amount",
+              "value": "100"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update Code Status",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "2|peB58vClNRR1dn9VKD2UqwOLUO7WqZpMH7jALsoKe5eefe6f",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "code_id",
+              "value": "3",
+              "type": "text",
+              "uuid": "49318a57-a0c1-4864-a9e2-3f58b634882a"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/updateCodeStatus",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "updateCodeStatus"
+          ],
+          "query": [
+            {
+              "key": "code_id",
+              "value": "4",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get User Earnings",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "2|peB58vClNRR1dn9VKD2UqwOLUO7WqZpMH7jALsoKe5eefe6f",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/getUserEarnings",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "getUserEarnings"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Monthly Report for admin",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|lTnqLIciW5jDiuFwXGMTPUdrmwtwuPrUNvTob1MR2132190c",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/getMonthlyEarningsReport",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "getMonthlyEarningsReport"
           ]
         }
       },

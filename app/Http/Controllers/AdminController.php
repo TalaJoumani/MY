@@ -78,5 +78,28 @@ class AdminController extends Controller
 
     }
 
+    public function verifyAndCalculateCode(Request $request){
+        if(auth('sanctum')->user()->role !== 'admin'){
+            return response()->json([
+                'message' => 'Unauthorized'
+            ],401);
+        }
+        $data=$request->validate([
+            'code'=>'required|string',
+            'total_amount'=>'required|numeric|min:0',
+        ]);
+        $result=$this->adminService->verifyAndCalculateCode($data);
+        return $result;
+    }
+
+    public function getMonthlyEarningsReport(Request $request){
+        if(auth('sanctum')->user()->role !== 'admin'){
+            return response()->json([
+                'message' => 'Unauthorized'
+            ],401);
+        }
+        $result=$this->adminService->getMonthlyEarningsReport();
+        return $result;
+    }
     
 }
