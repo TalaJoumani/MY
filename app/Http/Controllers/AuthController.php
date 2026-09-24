@@ -19,4 +19,10 @@ class AuthController extends Controller
         $credentials = $loginRequest->only('email', 'password', 'fcm_token');
         return response()->json($this->authService->login($credentials));
     }
+
+    public function logout(Request $request)
+    {
+        $result = $this->authService->logout($request);
+        return $result;
+    }
 }

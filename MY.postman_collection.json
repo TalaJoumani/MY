@@ -550,7 +550,7 @@
       "response": []
     },
     {
-      "name": "Monthly Report for admin",
+      "name": "logout",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -590,6 +590,45 @@
           "path": [
             "api",
             "getMonthlyEarningsReport"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "4|clomCAkgfm1S7CMTBUwwxLruKDhrdGaJR8zwzYhJc5a4d968",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/logout",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "logout"
           ]
         }
       },

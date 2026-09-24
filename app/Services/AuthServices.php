@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 class AuthServices
 {
@@ -28,5 +29,15 @@ class AuthServices
             'user' => $user,
         ], 200);
    }
+
+    public function logout(Request $request)
+    {
+        if($request->user() && $request->user()->currentAccessToken()) {
+            $request->user()->currentAccessToken()->delete();
+            return response()->json([
+                'message' => 'Logout successful',
+            ], 200);
+        }
+    }
   
 }
