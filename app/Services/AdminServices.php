@@ -86,7 +86,7 @@ class AdminServices{
         $discountValue=($totalAmount*$codeDiscount)/100;
         $finalAmount=$totalAmount-$discountValue;
         $commissionPercentage=max(0, $maxDiscount-$codeDiscount);
-        $userCommission=($totalAmount*$commissionPercentage)/100;
+        $userCommission=($finalAmount*$commissionPercentage)/100;
         $transaction=transaction::create([
             'user_id'=>$user->id,
             'code_id'=>$code->id,
@@ -146,4 +146,39 @@ class AdminServices{
         ],200);
     }
     
+public function getUserMonthlyEarnings(int $userId){
+    $user=User::where('id',$userId)->where('role','user')->first();
+    if(!$user){
+        return response()->json(['message'=>'User not found'],404);
+    }
+
+    $transactions=transaction::whereHas('code',function($q) use ($userId){
+        $q->where('user_id',$userId);
+    })->get();
+
+    $report=[];
+    foreach($transactions as $transaction){
+        $monthKey=$transaction->created_at->format('Y-m');
+        if(!isset($report[$monthKey])){
+            $report[$monthKey]=[
+                'month'=>$monthKey,
+                'total_commission'=>0,
+                'transaction_count'=>0,
+            ];
+        }
+        $report[$monthKey]['total_commission']+=(float)$transaction->user_commission;
+        $report[$monthKey]['transaction_count']+=1;
+    }
+
+    krsort($report); // newest month first
+    $currentMonth=now()->format('Y-m');
+
+    return response()->json([
+        'message'=>'User earnings retrieved successfully',
+        'user_id'=>$user->id,
+        'user_name'=>$user->first_name.' '.$user->last_name,
+         'total_commission'=>$report[$currentMonth]['total_commission'] ?? 0,
+        'report'=>array_values($report),
+    ],200);
+}
 }

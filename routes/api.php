@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('updateUser', [AdminController::class, 'updateUser']);
     Route::get('verifyAndCalculateCode',[AdminController::class,'verifyAndCalculateCode']);
     Route::get('getMonthlyEarningsReport', [AdminController::class, 'getMonthlyEarningsReport']);
+    Route::get('getUserMonthlyEarnings', [AdminController::class, 'getUserMonthlyEarnings']);
 
 
     Route::post('generateUserCode', [UserController::class, 'generateUserCode']);

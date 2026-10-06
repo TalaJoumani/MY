@@ -101,5 +101,13 @@ class AdminController extends Controller
         $result=$this->adminService->getMonthlyEarningsReport();
         return $result;
     }
+
+    public function getUserMonthlyEarnings(Request $request){
+    if(auth('sanctum')->user()->role !== 'admin'){
+        return response()->json(['message' => 'Unauthorized'],401);
+    }
+    $data=$request->validate(['id'=>'required|integer']);
+    return $this->adminService->getUserMonthlyEarnings($data['id']);
+}
     
 }
